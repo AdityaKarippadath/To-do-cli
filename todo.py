@@ -20,7 +20,9 @@ def show_tasks():
         print(f"{i}. {task}")
 
 def add_task():
-    task = input("Enter a task: ")
+    task = input("Enter a task: ")	
+    priority = input("Priority (High/Med/Low): ")
+    tasks.append(f"[{priority}] {task}")
     tasks = load_tasks()
     tasks.append(task)
     save_tasks(tasks)
