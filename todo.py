@@ -35,7 +35,17 @@ def delete_task():
         save_tasks(tasks)
         print("✔ Task deleted.")
     else:
+
         print("❌ Invalid task number.")
+
+def complete_task():
+    show_tasks()
+    idx = int(input("Enter number to mark done: "))
+    tasks = load_tasks()
+    if 1 <= idx <= len(tasks):
+        print(f"✔ Completed: {tasks.pop(idx-1)}")
+        save_tasks(tasks)
+
 
 def menu():
     print("\n1) Show Tasks\n2) Add Task\n3) Delete Task\n4) Exit")
@@ -51,6 +61,9 @@ if __name__ == "__main__":
         elif choice == "3":
             delete_task()
         elif choice == "4":
-            break
+            break	
+	elif choice == "5":
+	    complete_task()
+
         else:
             print("❌ Invalid choice")
